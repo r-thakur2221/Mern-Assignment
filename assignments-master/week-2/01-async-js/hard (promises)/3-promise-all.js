@@ -5,7 +5,18 @@
  */
 
 function wait1(t) {
-
+    return new Promise((resolve,reject)=>{
+        try{
+            setTimeout(()=>{
+                console.log(`I am printed after ${t} second!  from wait1`);
+                resolve();
+            },n*1000)
+        }
+        catch(e){
+            console.log(`Error in priniting wait1...`);
+            reject();
+        }
+    })
 }
 
 function wait2(t) {
