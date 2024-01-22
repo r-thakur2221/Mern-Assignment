@@ -5,14 +5,14 @@
 
 function isPalindrome(chechStr) {
   let mid=parseInt(chechStr.length/2);
-  let str=chechStr.toLowerCase();
+  let str=chechStr.toLowerCase().trim().split(" ").join("").split(RegExp("[,?!'.]")).join("").split("");
   for(let i=0;i<mid;i++){
-    if(str.charAt(i)!==str.charAt(str.length-i-1))
+    if(str.at(i)!==str.at(str.length-i-1))
       return false;
   }
   return true;
 }
 
-console.log(isPalindrome("racecar"));
+// console.log(isPalindrome('Eva, can I see bees in a cave?'));
 
 module.exports = isPalindrome;
