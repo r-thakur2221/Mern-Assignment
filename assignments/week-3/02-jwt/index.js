@@ -15,6 +15,8 @@ const jwtPassword = 'secret';
  */
 function signJwt(username, password) {
     // Your code here
+    let token= jwt.sign({username:username,password:password},jwtPassword);
+    return token;
 }
 
 /**
@@ -25,8 +27,15 @@ function signJwt(username, password) {
  *                    Returns false if the token is invalid, expired, or not verified
  *                    using the secret key.
  */
-function verifyJwt(token) {
+async function verifyJwt(token) {
     // Your code here
+    try{
+        let isMatch=await jwt.verify(token,jwtPassword);
+        return true;
+    }
+    catch(e){
+        return false;
+    }
 }
 
 /**
@@ -38,6 +47,13 @@ function verifyJwt(token) {
  */
 function decodeJwt(token) {
     // Your code here
+    try{
+        return jwt.verify(token,jwtPassword);
+    }
+    catch(e){
+        return false;
+    }
+    
 }
 
 
